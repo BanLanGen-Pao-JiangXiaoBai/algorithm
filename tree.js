@@ -13,7 +13,10 @@ function tree(arr){
 
 var newTree = tree([1,2,null,3,null,null,4,null,5])
 console.log(newTree)
-
+//             1
+//     2                4    
+// null      3      null   5 
+//       null null
 // 前序
 function first(tree) {
   if(!tree) return
