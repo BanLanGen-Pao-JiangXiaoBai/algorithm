@@ -21,15 +21,34 @@ console.log(newTree)
 function first(tree) {
   if(!tree) return
   var arr = []
-  console.log(tree?.data)
+  console.log(tree.data)
   arr.push(tree.data)
-  arr = arr.concat(first(tree?.leftchild))
-  arr = arr.concat(first(tree?.rightchild))
+  arr = arr.concat(first(tree.leftchild))
+  arr = arr.concat(first(tree.rightchild))
   return arr
 }
 console.log(first(newTree).filter(item=>item!=undefined))
 
 // 中序
 function mid(tree){
-
+  if(!tree) return
+  var arr = []
+  arr = arr.concat(mid(tree.leftchild))
+  console.log(tree.data)
+  arr.push(tree.data)
+  arr = arr.concat(mid(tree.rightchild))
+  return arr
 }
+console.log(mid(newTree).filter(item=>item!=undefined))
+
+// 后序 递归方式
+function last(tree){
+  if(!tree) return
+  var arr = []
+  arr = arr.concat(last(tree.leftchild))
+  arr = arr.concat(last(tree.rightchild))
+  arr.push(tree.data)
+  console.log(tree.data)
+  return arr
+}
+console.log(last(newTree).filter(item=>item!=undefined))
